@@ -1,0 +1,7 @@
+server:
+  port: 9092
+
+logging:
+  level:
+    com.nana: DEBUG
+    org.springframework.security: DEBUG
