@@ -43,13 +43,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+	    	.antMatchers("/webjars/bootstrap/4.3.1/**").permitAll() /* added for fix isue springboot new version 2.xx */
+	    	.antMatchers("/css/**").permitAll() 					/* added isue MIME */
 			.antMatchers("/").hasAnyAuthority("USER", "CREATOR", "EDITOR", "ADMIN")
 			.antMatchers("/new").hasAnyAuthority("ADMIN", "CREATOR")
 			.antMatchers("/edit/**").hasAnyAuthority("ADMIN", "EDITOR")
 			.antMatchers("/delete/**").hasAuthority("ADMIN")
 			.anyRequest().authenticated()
 			.and()
-			.formLogin().permitAll()
+//			.formLogin().permitAll()
+			.formLogin()
+            .loginPage("/login")
+            .permitAll()
 			.and()
 			.logout().permitAll()
 			.and()
