@@ -25,7 +25,7 @@ public class UserController {
 		List<User> listUsers = userService.listAll();
 		model.addAttribute("listUsers", listUsers);
 
-		return "user/user_index";
+		return "views/user/user_index";
 	}
 
 	@RequestMapping("/user")
@@ -33,7 +33,7 @@ public class UserController {
 		User user = new User();
 		model.addAttribute("user", user);
 
-		return "user/new_user";
+		return "views/user/new_user";
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
@@ -45,7 +45,7 @@ public class UserController {
 
 	@RequestMapping("/user/{id}/edit")
 	public ModelAndView showEditUserForm(@PathVariable(name = "id") String id) {
-		ModelAndView mav = new ModelAndView("user/edit_user");
+		ModelAndView mav = new ModelAndView("views/user/edit_user");
 
 		User user = userService.get(id);
 		mav.addObject("user", user);
