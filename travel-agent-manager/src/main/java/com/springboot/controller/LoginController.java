@@ -27,7 +27,7 @@ public class LoginController {
 		String role = authResult.getAuthorities().toString();
 
 		if (role.contains("ADMIN")) {
-			response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/"));
+			response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/user-index"));
 		} else if (role.contains("USER")) {
 			response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/"));
 		} else {
