@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div th:replace="fragments/header :: header" />
-	<div align="center">
+	<div class="container">
 		<div sec:authorize="isAuthenticated()">
 			Welcome <b><span sec:authentication="name">Username</span></b> &nbsp;
 			<i><span sec:authentication="principal.authorities">Roles</span></i>

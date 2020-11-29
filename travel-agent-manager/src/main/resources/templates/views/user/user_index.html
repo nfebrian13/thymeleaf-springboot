@@ -8,22 +8,22 @@
 
 </head>
 <body>
+	
 	<div th:replace="fragments/header :: header" />
-	<div align="center">
+	<div class="container">
 		<div sec:authorize="isAuthenticated()">
 			Welcome <b><span sec:authentication="name">Username</span></b> &nbsp;
 			<i><span sec:authentication="principal.authorities">Roles</span></i>
 		</div>
 
-		<form th:action="@{/logout}" method="post">
-			<input type="submit" value="Logout" />
-		</form>
-
 		<h1>User Manager</h1>
 		<div sec:authorize="hasAnyAuthority('CREATOR', 'ADMIN')">
 			<a href="user">Create New User</a>
 		</div>
-
+		
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Logout" />
+		</form>
 		<br /> <br />
 		<table border="1" cellpadding="10">
 			<thead>
@@ -51,5 +51,6 @@
 		</table>
 	</div>
 	<div th:replace="fragments/footer :: footer" />
+	
 </body>
 </html>
