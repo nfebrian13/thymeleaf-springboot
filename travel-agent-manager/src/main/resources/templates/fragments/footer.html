@@ -7,17 +7,29 @@
 
     <div class="container">
 
-        <footer>
-        <!-- this is footer -->
-            <span sec:authorize="isAuthenticated()">
+  	<footer>
+  		<p>&copy; 2020 Travel Agent by Nana Febriana.</p>
+  	</footer>
+ 		<!-- this is footer -->
+        <!-- 
+          <footer>
+        	<span sec:authorize="isAuthenticated()">
                 | Logged user: <span sec:authentication="name"></span> |
                 Roles: <span sec:authentication="principal.authorities"></span> |
                 <a th:href="@{/logout}">Sign Out</a>
             </span>
 
-            <script type="text/javascript" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.js}"/> </script>
+            <script type="text/javascript" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.js}"/> </script> 
 
-        </footer>
+        </footer>  --> 
+        
+        <!-- 
+        <div sec:authorize="isAuthenticated()">
+			Welcome <b><span sec:authentication="name">Username</span></b> &nbsp;
+			<i><span sec:authentication="principal.authorities">Roles</span></i>
+		</div>
+        
+         -->
     </div>
 
 </div>
