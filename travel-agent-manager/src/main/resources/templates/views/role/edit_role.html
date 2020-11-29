@@ -3,8 +3,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Edit Role</title>
+<div th:replace="fragments/header :: header-css" />
+
 </head>
 <body>
+	<div th:replace="fragments/header :: header" />
 	<div align="center">
 		<h1>Edit Role</h1>
 		<br />
@@ -14,7 +17,7 @@
 				<tr>
 					<td>Role ID:</td>
 					<td><input type="text" th:field="*{id}" readonly="readonly" /></td>
-				</tr>	
+				</tr>
 				<tr>
 					<td>Username:</td>
 					<td><input type="text" th:field="*{name}" /></td>
@@ -25,5 +28,6 @@
 			</table>
 		</form>
 	</div>
+	<div th:replace="fragments/footer :: footer" />
 </body>
 </html>
