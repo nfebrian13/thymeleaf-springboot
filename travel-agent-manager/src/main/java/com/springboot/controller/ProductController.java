@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.springboot.model.Product;
 import com.springboot.service.ProductService;
 
-
 @Controller
 public class ProductController {
 
