@@ -16,7 +16,7 @@ import com.springboot.service.ProductService;
 
 
 @Controller
-public class AppController {
+public class ProductController {
 
 	@Autowired
 	private ProductService service;

@@ -52,14 +52,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/delete/**").hasAuthority("ADMIN")
 			.anyRequest().authenticated()
 			.and()
-//			.formLogin().permitAll()
+//			.formLogin().permitAll() 								/* default spring security login */
 			.formLogin()
             .loginPage("/login")
             .permitAll()
+            .defaultSuccessUrl("/success", true)
 			.and()
 			.logout().permitAll()
 			.and()
-			.exceptionHandling().accessDeniedPage("/403")
-			;
+			.exceptionHandling().accessDeniedPage("/403");
 	}
 }
