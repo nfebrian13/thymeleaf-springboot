@@ -1,0 +1,17 @@
+INSERT INTO sales.roles (role_id, name) VALUES (uuid(),'USER'); 242cdf3e-31f9-11eb-afc5-14dae9663f9b
+INSERT INTO sales.roles (role_id, name) VALUES (uuid(),'CREATOR');  25ed9f9c-31f9-11eb-afc5-14dae9663f9b
+INSERT INTO sales.roles (role_id, name) VALUES (uuid(),'EDITOR'); 278a77a6-31f9-11eb-afc5-14dae9663f9b
+INSERT INTO sales.roles (role_id, name) VALUES (uuid(),'ADMIN'); 28c9a9d6-31f9-11eb-afc5-14dae9663f9b
+
+INSERT INTO sales.users (user_id, username, password, enabled) VALUES (uuid(),'patrick', '$2a$10$cTUErxQqYVyU2qmQGIktpup5chLEdhD2zpzNEyYqmxrHHJbSNDOG.', true);
+INSERT INTO sales.users (user_id, username, password, enabled) VALUES (uuid(),'alex', '$2a$10$.tP2OH3dEG0zms7vek4ated5AiQ.EGkncii0OpCcGq4bckS9NOULu', true);
+INSERT INTO sales.users (user_id, username, password, enabled) VALUES (uuid(),'john', '$2a$10$E2UPv7arXmp3q0LzVzCBNeb4B4AtbTAGjkefVDnSztOwE7Gix6kea', true);
+INSERT INTO sales.users (user_id, username, password, enabled) VALUES (uuid(),'namhm', '$2a$10$GQT8bfLMaLYwlyUysnGwDu6HMB5G.tin5MKT/uduv2Nez0.DmhnOq', true);
+INSERT INTO sales.users (user_id, username, password, enabled) VALUES (uuid(),'admin', '$2a$10$IqTJTjn39IU5.7sSCDQxzu3xug6z/LPU6IF0azE/8CkHCwYEnwBX.', true);
+
+INSERT INTO  sales.users_roles (user_id, role_id) VALUES ('9495f105-31f9-11eb-afc5-14dae9663f9b', '242cdf3e-31f9-11eb-afc5-14dae9663f9b'); -- user patrick has role USER
+INSERT INTO  sales.users_roles (user_id, role_id) VALUES ('95ba85be-31f9-11eb-afc5-14dae9663f9b', '25ed9f9c-31f9-11eb-afc5-14dae9663f9b'); -- user alex has role CREATOR
+INSERT INTO  sales.users_roles (user_id, role_id) VALUES ('96d9e59f-31f9-11eb-afc5-14dae9663f9b', '278a77a6-31f9-11eb-afc5-14dae9663f9b'); -- user john has role EDITOR
+INSERT INTO  sales.users_roles (user_id, role_id) VALUES ('97def2be-31f9-11eb-afc5-14dae9663f9b', '25ed9f9c-31f9-11eb-afc5-14dae9663f9b'); -- user namhm has role CREATOR
+INSERT INTO  sales.users_roles (user_id, role_id) VALUES ('97def2be-31f9-11eb-afc5-14dae9663f9b', '278a77a6-31f9-11eb-afc5-14dae9663f9b'); -- user namhm has role EDITOR
+INSERT INTO  sales.users_roles (user_id, role_id) VALUES ('99155a8b-31f9-11eb-afc5-14dae9663f9b', '28c9a9d6-31f9-11eb-afc5-14dae9663f9b'); -- user admin has role ADMIN
