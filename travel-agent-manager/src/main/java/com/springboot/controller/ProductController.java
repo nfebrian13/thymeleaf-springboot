@@ -25,7 +25,7 @@ public class ProductController {
 		List<Product> listProducts = service.listAll();
 		model.addAttribute("listProducts", listProducts);
 
-		return "index";
+		return "product/index";
 	}
 
 	@RequestMapping("/new")
@@ -33,7 +33,7 @@ public class ProductController {
 		Product product = new Product();
 		model.addAttribute("product", product);
 
-		return "new_product";
+		return "product/new_product";
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
@@ -45,7 +45,7 @@ public class ProductController {
 
 	@RequestMapping("/edit/{id}")
 	public ModelAndView showEditProductForm(@PathVariable(name = "id") Long id) {
-		ModelAndView mav = new ModelAndView("edit_product");
+		ModelAndView mav = new ModelAndView("product/edit_product");
 
 		Product product = service.get(id);
 		mav.addObject("product", product);
