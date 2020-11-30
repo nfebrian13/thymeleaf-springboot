@@ -1,16 +1,19 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 </head>
 <body>
-<div th:fragment="footer">
+	
+	<div th:fragment="footer">
 
-    <div class="container">
-
-  	<footer>
-  		<p>&copy; 2020 Travel Agent by Nana Febriana.</p>
-  	</footer>
- 		<!-- this is footer -->
+		<footer class="footer mt-auto py-3">
+			<div class="container">
+				<span class="text-muted">&copy; 2020 Travel Agent by Nana Febriana.</span>
+			</div>
+		</footer>
+		
+		<!-- this is footer -->
         <!-- 
           <footer>
         	<span sec:authorize="isAuthenticated()">
@@ -28,10 +31,8 @@
 			Welcome <b><span sec:authentication="name">Username</span></b> &nbsp;
 			<i><span sec:authentication="principal.authorities">Roles</span></i>
 		</div>
-        
          -->
-    </div>
-
-</div>
+         
+	</div>
 </body>
 </html>
