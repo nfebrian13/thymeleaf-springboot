@@ -22,7 +22,7 @@ public class RoleController {
 
 	@RequestMapping("/role-index")
 	public String viewHomePage(Model model) {
-		List<Role> listroles = roleService.listAll();
+		List<Role> listroles = roleService.findAll();
 		model.addAttribute("listRoles", listroles);
 
 		return "views/role/role_index";
@@ -39,7 +39,7 @@ public class RoleController {
 	@RequestMapping(value = "/role", method = RequestMethod.POST)
 	public String saveRole(@ModelAttribute("role") Role role) {
 		roleService.save(role);
-		
+
 		return "redirect:/role-index";
 	}
 
@@ -56,7 +56,7 @@ public class RoleController {
 	@RequestMapping("/role/{id}/delete")
 	public String deleteRole(@PathVariable(name = "id") String id) {
 		roleService.delete(id);
-		
+
 		return "redirect:/role-index";
 	}
 }

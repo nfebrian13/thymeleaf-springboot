@@ -1,5 +1,6 @@
 package com.springboot.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.springboot.model.Role;
 import com.springboot.model.User;
+import com.springboot.service.RoleService;
 import com.springboot.service.UserService;
 
 @Controller
 public class UserController {
-	
+
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private RoleService roleService;
 
 	@RequestMapping("/user-index")
 	public String viewHomePage(Model model) {
@@ -32,14 +38,14 @@ public class UserController {
 	public String showNewUserForm(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
-
+		model.addAttribute("roles", roleService.findAll());
 		return "views/user/new_user";
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") User user) {
 		userService.save(user);
-		
+
 		return "redirect:/user-index";
 	}
 
@@ -56,7 +62,7 @@ public class UserController {
 	@RequestMapping("/user/{id}/delete")
 	public String deleteProduct(@PathVariable(name = "id") String id) {
 		userService.delete(id);
-		
+
 		return "redirect:/user-index";
 	}
 }

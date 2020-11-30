@@ -15,7 +15,7 @@ public class RoleService {
 	@Autowired
 	private RoleRepository roleRepository;
 
-	public List<Role> listAll() {
+	public List<Role> findAll() {
 		List<Role> roles = new ArrayList<>();
 		roleRepository.findAll().forEach(roles::add);
 		return roles;
@@ -31,5 +31,9 @@ public class RoleService {
 
 	public void delete(String id) {
 		roleRepository.deleteById(id);
+	}
+	
+	public List<String> getRoleNameList() {
+		return roleRepository.getRoleNameList();
 	}
 }
