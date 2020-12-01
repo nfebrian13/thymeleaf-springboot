@@ -30,7 +30,13 @@ public class User {
 	private String password;
 	private boolean enabled;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	/** 
+	 * pada relationship many to many, antara tabel joinan dari 2 tabel dalam hal ini
+	 * user dan roles menghasilkan tabel baru yaitu user_roles
+	 * agar dapat didelete maka configurasi yang digunakan yakni CascadeType.MERGE
+	 * **/
+	
+	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
 
