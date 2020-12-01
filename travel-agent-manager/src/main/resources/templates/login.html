@@ -4,45 +4,21 @@
 <head>
 <title>Spring Security Example</title>
 <div th:replace="fragments/header-login :: header-css" />
+
 </head>
 <body>
 
 	<!-- <div th:replace="fragments/header-login :: header-login"/>  -->
-
-	<div class="container">
-		<div>
-			<form class="form-signin" th:action="@{/login}" method="post">
-				<div class="text-center mb-4">
-					<!--  <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg"
-						alt="" width="72" height="72"> -->
-					<h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
-					<p>
-						<a href="https://caniuse.com/#feat=css-placeholder-shown"></a>
-					</p>
-				</div>
-
-				<div th:if="${param.logout}">
-					<div class="alert alert-info">You have been logged out.</div>
-				</div>
-
-				<div class="form-label-group">
-					<label for="username">Username</label> <input type="text"
-						name="username" id="username" class="form-control"
-						placeholder="UserName" required="true" autofocus="true" />
-				</div>
-
-				<div class="form-label-group">
-					<label for="password">password</label> <input type="password"
-						name="password" id="password" class="form-control"
-						placeholder="Password" required="true" />
-				</div>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-					in</button>
-			</form>
-		</div>
+	<div class="login">
+		<h1>Login</h1>
+		<form th:action="@{/login}" method="post">
+			<input type="text" name="username" placeholder="Username"
+				required="required" /> <input type="password" name="password"
+				placeholder="Password" required="required" />
+			<button type="submit" class="btn btn-primary btn-block btn-large">Let
+				me in.</button>
+		</form>
 	</div>
-
-	<div th:replace="fragments/footer :: footer" />
-
+	
 </body>
 </html>
