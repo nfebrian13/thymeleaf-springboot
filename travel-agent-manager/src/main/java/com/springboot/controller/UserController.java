@@ -50,10 +50,10 @@ public class UserController {
 	@RequestMapping("/user/{id}/edit")
 	public ModelAndView showEditUserForm(@PathVariable(name = "id") String id) {
 		ModelAndView mav = new ModelAndView("views/user/edit_user");
-
+		
 		User user = userService.get(id);
 		mav.addObject("user", user);
-
+		mav.addObject("roles", roleService.findAll());
 		return mav;
 	}
 
