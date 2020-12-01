@@ -29,10 +29,17 @@
 				<div class="form-group row">
 					<label for="madeIn" class="col-sm-2 col-form-label">Role</label>
 					<div class="col-sm-10">
-						<select class="form-control" th:field="*{roles}">
-							<option th:each="role :${roles}" th:text="${role.name}"
-								th:value="${role.id}">Role Name</option>
-						</select>
+						<div>
+							<div th:each="role : ${roles}">
+								<input type="checkbox" th:field="*{roles}" th:value="${role.id}" /><label
+									th:text=" | &nbsp; ${role.name}|">Something is wrong !</label>
+							</div>
+							<!-- <select class="form-control" th:field="*{roles}">
+								<option th:each="role :${roles}" th:text="${role.name}"
+									th:value="${role.id}">Role Name</option>
+							</select>  -->
+						</div>
+
 					</div>
 				</div>
 
