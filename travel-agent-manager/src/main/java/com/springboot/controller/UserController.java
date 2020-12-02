@@ -21,7 +21,7 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -46,7 +46,10 @@ public class UserController {
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") User user) {
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		if (user.getId() == null) {
+			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		}
+		
 		userService.save(user);
 
 		return "redirect:/user-index";
@@ -55,7 +58,7 @@ public class UserController {
 	@RequestMapping("/user/{id}/edit")
 	public ModelAndView showEditUserForm(@PathVariable(name = "id") String id) {
 		ModelAndView mav = new ModelAndView("views/user/edit_user");
-		
+
 		User user = userService.get(id);
 		mav.addObject("user", user);
 		mav.addObject("roles", roleService.findAll());
