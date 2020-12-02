@@ -3,6 +3,7 @@ package com.springboot.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +21,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Autowired
 	private RoleService roleService;
@@ -42,6 +46,7 @@ public class UserController {
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") User user) {
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		userService.save(user);
 
 		return "redirect:/user-index";
