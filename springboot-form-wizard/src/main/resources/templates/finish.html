@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Security Example</title>
+<div th:replace="fragments/header :: header-css" />
+
+</head>
+<body>
+
+	<!-- <div th:replace="fragments/header-login :: header-login"/>  -->
+	<div class="login">
+		<div style="margin-top: 5em">
+			<h1>process finish</h1>
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Name</th>
+						<th scope="col">Email</th>
+						<th scope="col">Country</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td th:text="${customer.name}">Name</td>
+						<td th:text="${customer.email}">Email</td>
+						<td th:text="${customer.country}">Country</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
