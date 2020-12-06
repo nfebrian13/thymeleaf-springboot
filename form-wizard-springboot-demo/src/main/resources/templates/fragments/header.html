@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<div th:fragment="header-css">
+	<!-- this is header-css -->
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+</div>
+
+
+</head>
+<body>
+	<div th:fragment="header">
+		<!-- this is header -->
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" th:href="@{/}">Spring Boot</a>
+				</div>
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<!-- <li class="active"><a th:href="@{/}">Home</a></li>  -->
+					</ul>
+				</div>
+			</div>
+			<div class="form-inline mt-2 mt-md-0">
+				<span style="color: #fff" sec:authorize="isAuthenticated()">
+					Logged user: <span sec:authentication="name"></span> | Roles: <span
+					sec:authentication="principal.authorities"></span> |
+
+				</span>
+				<form th:action="@{/logout}" method="post">
+					<input
+						style="background: none; color: #fff; border: none; padding: 0; font: inherit; cursor: pointer; outline: inherit;"
+						type="submit" value="Logout" />
+				</form>
+			</div>
+		</nav>
+	</div>
+
+</body>
+</html>
