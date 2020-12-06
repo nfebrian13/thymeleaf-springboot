@@ -54,7 +54,7 @@ public class PersonController {
 
 		if (userClickedCancel(request)) {
 			status.setComplete();
-			return "redirect:/person/form-1";
+			return "redirect:/person/form";
 		} else if (userIsFinished(request)) {
 			validator.validate(person, result);
 			if (result.hasErrors()) {
